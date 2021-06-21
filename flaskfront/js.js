@@ -41,7 +41,7 @@ function playCard(attribute, player){
 
 function computerPlay(){
 	var player = '0';
-	var attribute = getRandomInt(3);
+	var attribute = getRandomInt(5);
 	url="http://harryforskitt.com:5000/play/".concat(attribute).concat("/").concat(player);
 	console.log(url)
 	fetch(url).then(function (response) {
