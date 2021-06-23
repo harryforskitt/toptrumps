@@ -5,15 +5,21 @@ function getRandomInt(max) {
 
 
 
-function displayCard(number){
-	url="http://harryforskitt.com:5000/getcard/".concat(number);
+function displayCard(player){
+	url="http://harryforskitt.com:5000//playercard/".concat(player);
 	fetch(url).then(function (response) {
 		// The API call was successful!
 		return response.text();
 	}).then(function (data) {
 		// This is the JSON from our response
+		data=data.split(",");
 		console.log(data);
-		document.getElementById("cardInfo").innerHTML = data;
+		document.getElementById("pcname").innerHTML += data[0];
+		document.getElementById("pcdpsec").innerHTML += data[2];
+		document.getElementById("pcdpshot").innerHTML += data[3];
+		document.getElementById("pcfirerate").innerHTML += data[4];
+		document.getElementById("pcmagsize").innerHTML += data[5];
+		document.getElementById("pcrating").innerHTML += data[6];
 		return(data);
 	}).catch(function (err) {
 		// There was an error
