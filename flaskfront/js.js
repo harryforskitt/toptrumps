@@ -5,8 +5,8 @@ function getRandomInt(max) {
 
 
 
-function displayCard(player){
-	url="http://harryforskitt.com:5000//playercard/".concat(player);
+function displayPlayerCard(){
+	url="http://harryforskitt.com:5000/playercard/0";
 	fetch(url).then(function (response) {
 		// The API call was successful!
 		return response.text();
@@ -20,6 +20,28 @@ function displayCard(player){
 		document.getElementById("pcfirerate").innerHTML = data[4];
 		document.getElementById("pcmagsize").innerHTML = data[5];
 		document.getElementById("pcrating").innerHTML = data[6];
+		return(data);
+	}).catch(function (err) {
+		// There was an error
+		console.warn('Something went wrong.', err);
+	})
+};
+
+function displayComputerCard(){
+	url="http://harryforskitt.com:5000/playercard/1";
+	fetch(url).then(function (response) {
+		// The API call was successful!
+		return response.text();
+	}).then(function (data) {
+		// This is the JSON from our response
+		data=data.split(",");
+		console.log(data);
+		document.getElementById("ccname").innerHTML = data[0];
+		document.getElementById("ccdpsec").innerHTML = data[2];
+		document.getElementById("ccdpshot").innerHTML = data[3];
+		document.getElementById("ccfirerate").innerHTML = data[4];
+		document.getElementById("ccmagsize").innerHTML = data[5];
+		document.getElementById("ccrating").innerHTML = data[6];
 		return(data);
 	}).catch(function (err) {
 		// There was an error
@@ -43,7 +65,7 @@ function playCard(attribute, player){
 		// There was an error
 		console.warn('Something went wrong.', err);
 	})
-	displayCard('0');
+	displayPlayerCard();
 	computerCards();
 	playerCards();
 };
@@ -53,10 +75,9 @@ function computerPlay(){
 	var attribute = getRandomInt(5);
 	url="http://harryforskitt.com:5000/play/".concat(attribute).concat("/").concat(player);
 	console.log(url)
+	displayComputerCard()
 	fetch(url).then(function (response) {
 		// The API call was successful!
-		computerCards();
-		playerCards();
 		return response.text();
 	}).then(function (data) {
 		// This is the JSON from our response
@@ -67,7 +88,6 @@ function computerPlay(){
 		// There was an error
 		console.warn('Something went wrong.', err);
 	})
-	displayCard('0');
 	computerCards();
 	playerCards();
 };
@@ -110,6 +130,6 @@ function computerCards(){
 	})
 };
 
-displayCard('0');
+displayPlayerCard();
 computerCards();
 playerCards();
