@@ -15,13 +15,13 @@
 <p>Your card:</p>
 <div class="card">
 <div class="grid-container">
-  <div class="item1" id="pcname">Name: </div>
+  <div class="item1" >Name: <span id="pcname"></span></div>
   <div class="item2">Picture</div>
-  <div class="item3" id="pcdpsec">Damage Per Second: </div>  
-  <div class="item4" id="pcdpshot">Damage Per Shot: </div>
-  <div class="item5" id="pcfirerate">Fire Rate: </div>
-  <div class="item6" id="pcmagsize">Magazine Size: </div>
-  <div class="item7" id="pcrating">Rating: </div>
+  <div class="item3">Damage Per Second: <span id="pcdpsec"></span></div>  
+  <div class="item4">Damage Per Shot: <span id="pcdpshot"></span></div>
+  <div class="item5" >Fire Rate: <span id="pcfirerate"></span></div>
+  <div class="item6" >Magazine Size: <span id="pcmagsize"></span></div>
+  <div class="item7" >Rating: <span id="pcrating"></span></div>
 </div>
 </div>
 <p>Computer's card:</p>
@@ -37,12 +37,12 @@
   </div>
   </div>
 
-  <button id="dpsec" type="button" onclick="playCard('0', '0')">Play damage per second</button>
-  <button id="dpshot" type="button" onclick="playCard('1', '0')">Play damage per shot</button>
-  <button id="firerate" type="button" onclick="playCard('2', '0')">Play fire rate</button>
-  <button id="magsize" type="button" onclick="playCard('3', '0')">Play magazine size</button>
-  <button id="rating" type="button" onclick="playCard('4', '0')">Play Top Trumps rating</button>
-  <button id="rating" type="button" onclick="computerPlay()">Computer play</button>
+  <button id="dpsec" type="button" onclick="playCard('0', '0');">Play damage per second</button>
+  <button id="dpshot" type="button" onclick="playCard('1', '0');">Play damage per shot</button>
+  <button id="firerate" type="button" onclick="playCard('2', '0');">Play fire rate</button>
+  <button id="magsize" type="button" onclick="playCard('3', '0');">Play magazine size</button>
+  <button id="rating" type="button" onclick="playCard('4', '0');">Play Top Trumps rating</button>
+  <button id="rating" type="button" onclick="computerPlay();">Computer play</button>
   <p id="winner"></p>
   <p id="playerCards"></p>
   <p id="computerCards"></p>

@@ -14,12 +14,12 @@ function displayCard(player){
 		// This is the JSON from our response
 		data=data.split(",");
 		console.log(data);
-		document.getElementById("pcname").innerHTML += data[0];
-		document.getElementById("pcdpsec").innerHTML += data[2];
-		document.getElementById("pcdpshot").innerHTML += data[3];
-		document.getElementById("pcfirerate").innerHTML += data[4];
-		document.getElementById("pcmagsize").innerHTML += data[5];
-		document.getElementById("pcrating").innerHTML += data[6];
+		document.getElementById("pcname").innerHTML = data[0];
+		document.getElementById("pcdpsec").innerHTML = data[2];
+		document.getElementById("pcdpshot").innerHTML = data[3];
+		document.getElementById("pcfirerate").innerHTML = data[4];
+		document.getElementById("pcmagsize").innerHTML = data[5];
+		document.getElementById("pcrating").innerHTML = data[6];
 		return(data);
 	}).catch(function (err) {
 		// There was an error
@@ -43,6 +43,7 @@ function playCard(attribute, player){
 		// There was an error
 		console.warn('Something went wrong.', err);
 	})
+	displayCard('0');
 	computerCards();
 	playerCards();
 };
@@ -54,6 +55,8 @@ function computerPlay(){
 	console.log(url)
 	fetch(url).then(function (response) {
 		// The API call was successful!
+		computerCards();
+		playerCards();
 		return response.text();
 	}).then(function (data) {
 		// This is the JSON from our response
@@ -64,6 +67,7 @@ function computerPlay(){
 		// There was an error
 		console.warn('Something went wrong.', err);
 	})
+	displayCard('0');
 	computerCards();
 	playerCards();
 };
@@ -105,3 +109,7 @@ function computerCards(){
 		console.warn('Something went wrong.', err);
 	})
 };
+
+displayCard('0');
+computerCards();
+playerCards();
